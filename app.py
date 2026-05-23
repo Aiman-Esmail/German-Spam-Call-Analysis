@@ -261,7 +261,7 @@ def main() -> None:
         needle = q.strip().lower()
         mask = (
             spam_df["Number"].str.lower().str.contains(needle, na=False, regex=False)
-            | spam_df["Timestamp"].astype(str).str.lower().str.contains(needle, na=False)
+            | | spam_df["Timestamp"].astype(str).str.lower().str.contains(needle, na=False, regex=False)
             | spam_df["Duration"].astype(str).str.contains(needle, na=False)
         )
         spam_df = spam_df[mask]
